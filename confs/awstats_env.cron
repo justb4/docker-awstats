@@ -1,0 +1,7 @@
+# /etc/awstats/cronfile: configuration template file for awstats schedule
+# The env var AWSTATS_CRON_SCHEDULE will be substituted in aw-setup.sh
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+${AWSTATS_CRON_SCHEDULE} aw-update.sh > /var/log/awstats.log 2>&1

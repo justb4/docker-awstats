@@ -1,0 +1,24 @@
+version: "3"
+
+# Example docker-compose file, adapt for your setup
+services:
+
+  awstats:
+
+    image: justb4/awstats:latest
+
+    container_name: awstats
+
+    # restart: unless-stopped
+
+    ports:
+      - "8081:80"
+
+# If you need to run on a subpath behind a reverse proxy
+#    environment:
+#      - AWSTATS_PATH_PREFIX=/myawstats
+
+    volumes:
+      - ./sites:/etc/awstats/sites:ro
+      - ./log:/var/local/log:ro
+      - ./awstats:/var/lib/awstats
