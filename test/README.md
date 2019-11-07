@@ -9,7 +9,14 @@ These dirs are volume-mapped within a [docker-compose.yml](docker-compose.yml) f
  
 ## Usage
 
-* Start with `docker-compose up`
-* wait at least 2 mins for first stats to be run
+* Start with `docker-compose up`  or `./start.sh`
+* wait at least 15 mins for first stats to be run
+* OR if impatient go into Docker container and run:
+```
+docker exec -it awstats /bin/bash
+# in container
+aw-update.sh
+
+```
 * browse to http://localhost:8081
 

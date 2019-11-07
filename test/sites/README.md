@@ -21,4 +21,4 @@ AWSTATS_CONF_HOSTALIASES=www.map5.nl
 
 * note the use of [Traefik](https://traefik.io/) logs, these have their own logline format
 * using `%virtualnamequot` within the conf/env files stats for multiple virtual hosts/subpaths can be extracted from a single logfile
-
+* Traefik: note the use of `REGEXP` like `AWSTATS_CONF_HOSTALIASES="REGEX[^Host\-demo\-pygeoapi\-io\-PathPrefixStrip\-*]"` to extract `%virtualnamequot` asthis tring is not constant
