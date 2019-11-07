@@ -2,7 +2,8 @@ README
 ======
 
 All-in-one [Awstats](http://www.awstats.org) Docker Image for scheduled log-processing on multiple domains with minimal config, accessible 
-via built-in webpage.
+via built-in webpage. Find [built Docker Images on Docker Hub](https://hub.docker.com/repository/docker/justb4/awstats).
+NB some links below refer to relative files on GitHub, read [full/latest README here](https://github.com/justb4/docker-awstats).
 
 Features
 --------
