@@ -4,6 +4,14 @@
 
 echo "START aw-setup"
 
+echo "Running one-time provisioning"
+for f in /aw-setup.d/*
+do
+	case "$f" in
+	  */*.sh) echo "$0: running $f" && . "$f" ;;
+	esac
+done
+
 INDEX_HTML=/var/www/index.html
 
 pushd ${AWSTATS_SITES_DIR}

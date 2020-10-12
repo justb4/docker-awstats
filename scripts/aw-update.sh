@@ -4,6 +4,14 @@
 
 echo "START aw-update"
 
+echo "Running additional provisioning"
+for f in /aw-update.d/*
+do
+	case "$f" in
+	  */*.sh) echo "$0: running $f" && . "$f" ;;
+	esac
+done
+
 pushd /etc/awstats
 	for SITE_CONF in $(ls awstats.*.conf)
 	do

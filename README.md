@@ -1,6 +1,11 @@
 README
 ======
 
+
+![GitHub license](https://img.shields.io/github/license/justb4/docker-awstats)
+![GitHub release](https://img.shields.io/github/release/justb4/docker-awstats.svg)
+![Docker Pulls](https://img.shields.io/docker/pulls/justb4/awstats.svg)
+
 All-in-one [Awstats](http://www.awstats.org) Docker Image for scheduled log-processing on multiple domains with minimal config, accessible 
 via built-in webpage. Find [built Docker Images on Docker Hub](https://hub.docker.com/repository/docker/justb4/awstats).
 NB some links below refer to relative files on GitHub, read [full/latest README here](https://github.com/justb4/docker-awstats).
@@ -17,6 +22,8 @@ Features
 * landing HTML page for all configured sites
 * configurable `subpath` (prefix) for running behind reverse proxy
 * easy run with [docker-compose](test/docker-compose.yml)
+* run user-defined scripts once before startup (`aw-setup.sh`) 
+* run user-defined scripts before each scheduled `awstats` run (`aw-update.sh`), e.g. for log file sync
 
 The aim was to make this image as self-contained as possible with minimal host-dependencies.
 
@@ -79,6 +86,15 @@ The entry program is `supervisord` that will run a [setup program once](scripts/
  
 Advanced
 ========
+
+User-defined Scripts
+--------------------
+
+User-defined Shell/Bash scripts can be added in the directories `/aw-setup.d` and/or `/aw-update.d` by extending
+the Docker Image or easier via Docker Volume Mounting.
+
+Purpose is to provide hooks for preprocessing. For example, a script that fetches/syncs a logfile from a remote
+server just before [aw-update.sh](scripts/aw-update.sh) runs. This ensures the data is available.
 
 Analyze old log files
 ---------------------

@@ -15,6 +15,7 @@ RUN \
 	&& apt-get -yy install awstats gettext-base libapache2-mod-perl2 ${GEOIP_PACKAGES} supervisor cron \
 	&& echo 'Include conf/awstats_httpd.conf' >> /usr/local/apache2/conf/httpd.conf  \
 	&& mkdir /var/www && mv /usr/share/awstats/icon /var/www/icons && chown -R www-data:www-data /var/www \
+	&& mkdir -p /aw-setup.d && mkdir -p /aw-update.d \
     && apt-get clean && rm -rf /var/cache/apk/* /tmp/* /var/tmp/*
 
 # Configurations, some are templates to be substituted with env vars
